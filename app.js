@@ -18,6 +18,28 @@ class Header extends React.Component {
 }
 
 class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          items: [],
+          id: 1
+        };
+        this.addTask = this.addTask.bind(this);
+    }
+    
+    addTask(e) {
+        e.preventDefault();
+        let newTask = {
+            id: this.state.id,
+            text: this._taskValue.value
+        };
+        this.setState(prevState=>{
+           return{
+               items: prevState.items.concat(newTask)
+           }; 
+        });
+    }
+    
     render() {
         return(
             <form>
