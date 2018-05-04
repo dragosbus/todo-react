@@ -1,0 +1,76 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,*::after, *::before {
+    box-sizing: inherit;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(45deg, #6A00AB, #0050B2);
+    color: #fff;
+    padding: 2rem 4rem;
+    width: 85%;
+    margin: 2rem auto;
+    height: 25rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+main {
+    padding:1rem;
+}
+
+form {
+    width: 85%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.form-value,
+.form-submit {
+    width: 90%;
+    display: block;
+    border: none;
+    margin: 0 auto;
+    outline: none;
+}
+
+.form-value {
+    border-radius: 0.5rem 0.5rem 0 0;
+    height: 4rem;
+    font-size: 1.75rem;
+    letter-spacing: 1.2px;
+    padding: 1.5rem;
+    transition: border 0.55s ease-in;
+}
+
+.form-value:focus {
+    border: 1px solid #00D146;
+}
+
+.form-submit {
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 1.6rem;
+    background: #00D146;
+    color: #fff;
+    transition: background 0.55s ease-in;
+}
+
+.form-submit:hover {
+    background: #00A337;
+}
+
+ul {
+    font-style: none;
+}

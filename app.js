@@ -60,7 +60,7 @@ class Tasks extends React.Component {
     render() {
         return(
           <ul>
-            {this.props.items.map(task=><Task key={task.id} name={task.name}/>)}
+            {this.props.items.map((task, i)=><Task key={i} id={task.id} name={task.text}/>)}
           </ul>  
         );
     }
@@ -69,7 +69,7 @@ class Tasks extends React.Component {
 class Task extends React.Component {
     render() {
         return(
-            <li key={this.props.id}>{this.props.name}</li>
+            <li id={this.props.id}>{this.props.name}</li>
         );
     }
 }
