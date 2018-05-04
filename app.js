@@ -1,7 +1,10 @@
 class App extends React.Component {
     render() {
         return(
-            <Header />
+            <div className="app">
+                <Header/>
+                <Main />
+            </div>
         );
     }
 }
@@ -11,13 +14,13 @@ class Header extends React.Component {
         return(
             <header>
                 <h1>ToDo App</h1>
-                <Form />
             </header>
         );
     }
 }
 
-class Form extends React.Component {
+class Main extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +33,7 @@ class Form extends React.Component {
     addTask(e) {
         e.preventDefault();
         let newTask = {
-            id: this.state.id,
+            id: this.state.id++,
             text: this._taskValue.value
         };
         this.setState(prevState=>{
@@ -42,10 +45,13 @@ class Form extends React.Component {
     
     render() {
         return(
-            <form>
-                <input type="text" className="form-value" ref={val=>this._taskValue = val}/>
-                <input type="submit" className="form-submit"/>
-            </form>
+            <main>
+                <form onSubmit = {this.addTask}>
+                    <input type="text" className="form-value" ref={val=>this._taskValue = val}/>
+                    <input type="submit" className="form-submit"/>
+                </form>
+                <Tasks items={this.state.items}/>
+            </main>    
         );
     }
 }
@@ -54,7 +60,7 @@ class Tasks extends React.Component {
     render() {
         return(
           <ul>
-          
+            {this.props.items.map(task=><Task key={task.id} name={task.name}/>)}
           </ul>  
         );
     }
@@ -63,7 +69,7 @@ class Tasks extends React.Component {
 class Task extends React.Component {
     render() {
         return(
-            <li></li>
+            <li key={this.props.id}>{this.props.name}</li>
         );
     }
 }
