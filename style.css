@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
+    min-height: 100%;
 }
 
 *,*::after, *::before {
@@ -12,8 +13,14 @@ html {
     padding: 0;
 }
 
+body {
+    background: linear-gradient(45deg, #3BB5F7, #3D5AFF);
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
 header {
-    background: linear-gradient(45deg, #6A00AB, #0050B2);
+    background: linear-gradient(45deg, #CE336F, #3D5AFF);
     color: #fff;
     padding: 2rem 4rem;
     width: 85%;
@@ -21,6 +28,7 @@ header {
     height: 25rem;
     text-align: center;
     border-radius: 0.5rem;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
 }
 
 main {
@@ -73,10 +81,49 @@ form {
 
 ul {
     font-style: none;
+    margin-top: 4rem;
 }
 
 .task {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    margin: 1rem auto;
+    border-radius: 0.7rem;
+}
+
+.task-info {
+    width: 30%;
+    text-align: center;
+    background: #CE336F;
+    border-radius: 0.5rem 0 0 0.5rem;
+    height: 12rem;
+    position: relative;
+}
+
+.task-id {
+    margin: 1rem 0;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.date {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 1.65rem;
+    color: #fff;
+}
+
+.task-name {
+    width: 70%;
+    text-align: center;
+    font-size: 2rem;
+    color: #222;
+    background: #fff;
+    border-radius: 0 0.5rem 0.5rem 0;
+    height: 12rem;
 }
