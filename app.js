@@ -32,9 +32,14 @@ class Main extends React.Component {
     
     addTask(e) {
         e.preventDefault();
+        let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday"];
         let newTask = {
             id: this.state.id++,
-            text: this._taskValue.value
+            text: this._taskValue.value,
+            date: {
+                day: weekDays[new Date().getDay()],
+                moment: new Date().toLocaleTimeString()
+            }
         };
         this.setState(prevState=>{
            return{
@@ -60,7 +65,7 @@ class Tasks extends React.Component {
     render() {
         return(
           <ul>
-            {this.props.items.map((task, i)=><Task key={i} id={task.id} name={task.text}/>)}
+            {this.props.items.map((task, i)=><Task key={i} id={task.id} name={task.text} date={task.date}/>)}
           </ul>  
         );
     }
@@ -69,7 +74,14 @@ class Tasks extends React.Component {
 class Task extends React.Component {
     render() {
         return(
-            <li id={this.props.id}>{this.props.name}</li>
+            <li className="task" id={this.props.id}>
+                <div className="task-info">
+                    <p className="task-id">{this.props.id}</p>
+                    <p className="task-date-day">{this.props.date.day}</p>
+                    <p className="task-date-momment">{this.props.date.moment}</p>
+                </div>
+                <p className="task-name">{this.props.name}</p>
+            </li>
         );
     }
 }

@@ -74,3 +74,9 @@ form {
 ul {
     font-style: none;
 }
+
+.task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
