@@ -20,7 +20,7 @@ export class Form extends Component {
         if (this._taskValue.value) {
             this.setState({
                 items: this.state.items.concat({
-                    id: this.state.id + 1,
+                    id: this.state.id++,
                     text: this._taskValue.value,
                     date: {
                         day: weekDays[new Date().getDay()],
