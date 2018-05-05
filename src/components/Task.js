@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Task extends React.Component {
+export class Task extends Component {
     render() {
         return (
             <li className="task" id={this.props.id}>
@@ -11,7 +11,9 @@ export class Task extends React.Component {
                         <p className="task-date-momment">{this.props.date.moment}</p>
                     </div>
                 </div>
-                <p className="task-name">{this.props.name}</p>
+                <div className="task-name">
+                    <p>{this.props.name}</p>
+                </div>
             </li>
         );
     }
