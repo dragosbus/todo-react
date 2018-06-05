@@ -11,7 +11,7 @@ export const Task = props =>{
                 </div>
             </div>
             <div className="task-name">
-                <p>{this.props.name}</p>
+                <p>{props.name}</p>
                 <button onClick={props.removeTask}>Remove</button>
             </div>
         </li>
