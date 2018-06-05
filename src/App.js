@@ -20,7 +20,7 @@ class App extends Component {
   addTask(name) {
     let newTask = {
       id:this.state.id,
-      name: name,
+      text: name,
       date: {
         day: weekDays[new Date().getDay()],
         moment: new Date().toLocaleTimeString()
@@ -32,6 +32,7 @@ class App extends Component {
         id: prevState.id+1
       }
     });
+    console.log(this.state.tasks)
   }
 
   removeTask(e) {

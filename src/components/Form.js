@@ -5,7 +5,7 @@ export class Form extends Component {
 
     addTask(e) {
         e.preventDefault();
-        this.props.addTask(this._taskValue);
+        this.props.addTask(this._taskValue.value);
     }
 
     render() {

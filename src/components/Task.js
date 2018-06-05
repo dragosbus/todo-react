@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export const Task = props =>{
     return (
@@ -11,7 +11,7 @@ export const Task = props =>{
                 </div>
             </div>
             <div className="task-name">
-                <p>{props.name}</p>
+                <p>{props.text}</p>
                 <button onClick={props.removeTask}>Remove</button>
             </div>
         </li>
