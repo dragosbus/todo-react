@@ -14,6 +14,7 @@ class App extends Component {
       tasks:[]
     }
     this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   addTask(name) {
@@ -31,6 +32,10 @@ class App extends Component {
         id: prevState.id+1
       }
     });
+  }
+
+  removeTask() {
+    
   }
 
   render() {
