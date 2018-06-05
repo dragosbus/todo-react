@@ -34,8 +34,15 @@ class App extends Component {
     });
   }
 
-  removeTask() {
-    
+  removeTask(e) {
+    let id = +e.target.parentNode.parentNode.id;
+    this.setState(prevState=>{
+      return{
+        tasks: prevState.tasks.filter(task=>task.id !== id),
+        //if is deleted last task the next id become the id of the task deleted.Otherwise become the last id +1
+        id: id === prevState.tasks[prevState.tasks.length-1].id ? prevState.tasks[prevState.tasks.length-1].id : prevState.tasks[prevState.tasks.length-1].id + 1
+      }
+    });
   }
 
   render() {
@@ -43,7 +50,7 @@ class App extends Component {
       <div className="app">
         <Header />
         <Form addTask={this.addTask}/>
-        <Tasks items={this.state.tasks}/>
+        <Tasks items={this.state.tasks} removeTask={this.removeTask}/>
       </div>
     );
   }
