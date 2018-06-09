@@ -114,6 +114,30 @@ ul.tasks {
   height: 12rem;
 }
 
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.remove-btn,
+.edit-btn {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background: rgb(214, 9, 60);
+}
+
+.edit-btn {
+  background: #3D5AFF;
+}
+
 @keyframes intro-task {
   0% {
     opacity: 0;

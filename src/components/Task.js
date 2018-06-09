@@ -12,7 +12,10 @@ export const Task = props =>{
             </div>
             <div className="task-name">
                 <p>{props.text}</p>
-                <button onClick={props.removeTask}>Remove</button>
+                <div className="btns">
+                    <button className="remove-btn" onClick={props.removeTask}>Remove</button>
+                    <button className="edit-btn">Edit</button>
+                </div>
             </div>
         </li>
     );

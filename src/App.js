@@ -32,7 +32,6 @@ class App extends Component {
         id: prevState.id+1
       }
     });
-    console.log(this.state.tasks)
   }
 
   removeTask(e) {
