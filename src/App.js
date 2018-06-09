@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header } from './components/Header';
 import { Form } from './components/Form';
 import {Tasks} from './components/Tasks';
+import {Modal} from './components/Modal';
 import './App.css';
 
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -11,10 +12,13 @@ class App extends Component {
     super(props);
     this.state = {
       id: 1,
-      tasks:[]
+      tasks:[],
+      editModalOn: false
     }
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.editTask = this.editTask.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   addTask(name) {
@@ -45,12 +49,27 @@ class App extends Component {
     });
   }
 
+  editTask(e) {
+    e.preventDefault();
+    this.toggleModal();
+    let id = +e.target.parentNode.parentNode.parentNode.id;
+    
+    console.log(id);
+  }
+
+  toggleModal() {
+    this.setState({
+      editModalOn: !this.state.editModalOn
+    });
+  }
+
   render() {
     return (
       <div className="app">
         <Header />
         <Form addTask={this.addTask}/>
-        <Tasks items={this.state.tasks} removeTask={this.removeTask}/>
+        <Tasks items={this.state.tasks} removeTask={this.removeTask} editTask={this.editTask}/>
+        <Modal editModalOn={this.state.editModalOn} togglerModal={this.toggleModal}/>
       </div>
     );
   }
