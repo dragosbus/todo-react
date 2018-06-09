@@ -14,7 +14,7 @@ export const Task = props =>{
                 <p>{props.text}</p>
                 <div className="btns">
                     <button className="remove-btn" onClick={props.removeTask}>Remove</button>
-                    <button className="edit-btn" onClick={props.editTask}>Edit</button>
+                    <button className="edit-btn" onClick={props.togglerModal}>Edit</button>
                 </div>
             </div>
         </li>
