@@ -14,6 +14,7 @@ class App extends Component {
       id: 1
     };
     this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   addTask(name) {
@@ -36,12 +37,27 @@ class App extends Component {
     }
   }
 
+  removeTask(index) {
+    this.state.tasks.splice(index, 1);
+    this.state.tasks.forEach((task, i)=>{
+      task.id = i+1;
+    });
+    this.setState(prevState=>{
+      return{
+        tasks: prevState.tasks
+      }
+    });
+  }
+
   render() {
     return (
       <div className="app">
         <Header />
         <Form addTask={this.addTask}/>
-        <Tasks items={this.state.tasks}/>
+        <Tasks 
+          items={this.state.tasks} 
+          remove={this.removeTask}
+        />
       </div>
     );
   }

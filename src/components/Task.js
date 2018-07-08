@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 
 export class Task extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    removeTask(e) {
-        console.log(e.target.parentNode.parentNode);
-    }
 
     render() {
         return (
@@ -21,7 +14,7 @@ export class Task extends Component {
                 </div>
                 <div className="task-name">
                     <p>{this.props.name}</p>
-                    <button onClick={this.removeTask.bind(this)}>Remove</button>
+                    <button onClick={this.props.remove}>Remove</button>
                 </div>
             </li>
         );
