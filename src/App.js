@@ -10,11 +10,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [],
-      id: 1
-    };
+      id: 1,
+      tasks:[],
+      editModalOn: false,
+      idForEdit: 0
+    }
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.editTask = this.editTask.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   addTask(name) {
@@ -49,6 +53,14 @@ class App extends Component {
         tasks: prevState.tasks
       }
     });
+  }
+
+  editTask() {
+
+  }
+
+  toggleModal() {
+
   }
 
   render() {

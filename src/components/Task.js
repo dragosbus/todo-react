@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export class Task extends Component {
 
@@ -18,5 +18,5 @@ export class Task extends Component {
                 </div>
             </li>
         );
-    }
+    };
 }
