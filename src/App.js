@@ -38,7 +38,9 @@ class App extends Component {
   }
 
   removeTask(index) {
+    //remove the element clicked
     this.state.tasks.splice(index, 1);
+    //reset the id's
     this.state.tasks.forEach((task, i)=>{
       task.id = i+1;
     });
