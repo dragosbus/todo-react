@@ -1,4 +1,4 @@
-import * as ActioTypes from '../actionTypes/actionTypes';
+import * as ActionTypes from '../actionTypes/actionTypes';
 
 
 const initialState = {
@@ -10,7 +10,7 @@ const taskReducer = (state=initialState, action) => {
     let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     switch(action.type) {
-        case ActioTypes.ADD_TASK:
+        case ActionTypes.ADD_TASK:
             return {
                 tasks: [...state.tasks, 
                     {   
@@ -24,18 +24,24 @@ const taskReducer = (state=initialState, action) => {
                    ],
                 id: state.id + 1
             };
-        case ActioTypes.REMOVE_TASK:
-            return state.tasks.filter((task, index)=>index !== action.index);
-        case ActioTypes.EDIT_TASK:
-            return state.tasks.map((task,index)=>{
-                if(index === action.index) {
-                    return {
-                        date: task.date,
-                        name: action.name,
+        case ActionTypes.REMOVE_TASK:
+            return {
+                tasks: state.tasks.filter((task, index)=>index !== action.index),
+                id: state.id
+            };
+        case ActionTypes.EDIT_TASK:
+            return {
+                tasks: state.tasks.map((task,index)=>{
+                    if(index === action.index) {
+                        return {
+                            date: task.date,
+                            name: action.name,
+                        }
                     }
-                }
-                return task;
-            });
+                    return task;
+                }),
+                id: state.id
+            };
         default:
             return state;
     }
