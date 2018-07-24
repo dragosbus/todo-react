@@ -10,6 +10,7 @@ import './App.css';
 class App extends Component {
   render() {
     let {dispatch, tasks} = this.props;
+    console.log(tasks)
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     return (
@@ -27,7 +28,8 @@ class App extends Component {
 
 const mapStateToProps = state => (
   {
-    tasks: state
+    tasks: state.tasks,
+    id: state.id
   }
 );
 
