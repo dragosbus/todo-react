@@ -1,9 +1,9 @@
 import * as ActionTypes from '../actionTypes/actionTypes';
 
-export const addTask = task => {
+export const addTask = name => {
     return {
         type: ActionTypes.ADD_TASK,
-        task
+        name
     }
 };
 
@@ -14,7 +14,7 @@ export const removeTask = index => {
     }
 };
 
-export const editTask = index => {
+export const editTask = (index, name) => {
     return {
         type: ActionTypes.EDIT_TASK,
         index,

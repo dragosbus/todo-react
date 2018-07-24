@@ -1,75 +1,22 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as ActionTaskCreators from './actions/actions';
 import { Header } from './components/Header';
 import { Form } from './components/Form';
 import {Tasks} from './components/Tasks';
 import './App.css';
 
-let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: 1,
-      tasks:[],
-      editModalOn: false,
-      idForEdit: 0
-    }
-    this.addTask = this.addTask.bind(this);
-    this.removeTask = this.removeTask.bind(this);
-    this.editTask = this.editTask.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
-  }
-
-  addTask(name) {
-    let newTask = {
-      id: this.state.id++,
-          text: name,
-          date: {
-            day: weekDays[new Date().getDay()],
-            moment: new Date().toLocaleTimeString()
-          }
-    }
-    if (name) {
-      this.setState(prevState=>{
-        return {
-          tasks: prevState.tasks.concat(newTask)
-        }
-      });
-    } else {
-      alert('Enter a value');
-    }
-  }
-
-  removeTask(index) {
-    //remove the element clicked
-    this.state.tasks.splice(index, 1);
-    //reset the id's
-    this.state.tasks.forEach((task, i)=>{
-      task.id = i+1;
-    });
-    this.setState(prevState=>{
-      return{
-        tasks: prevState.tasks
-      }
-    });
-  }
-
-  editTask() {
-
-  }
-
-  toggleModal() {
-
-  }
-
   render() {
+    let {dispatch, tasks} = this.props;
+    const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     return (
       <div className="app">
         <Header />
-        <Form addTask={this.addTask}/>
+        <Form addTask={addTask}/>
         <Tasks 
-          items={this.state.tasks} 
+          items={tasks} 
           remove={this.removeTask}
         />
       </div>
@@ -77,4 +24,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => (
+  {
+    tasks: state
+  }
+);
+
+export default connect(mapStateToProps)(App);
