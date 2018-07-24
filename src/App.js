@@ -11,13 +11,14 @@ class App extends Component {
   render() {
     let {dispatch, tasks} = this.props;
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
+    const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     return (
       <div className="app">
         <Header />
         <Form addTask={addTask}/>
         <Tasks 
           items={tasks} 
-          remove={this.removeTask}
+          remove={removeTask}
         />
       </div>
     );
