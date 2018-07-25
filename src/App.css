@@ -100,8 +100,9 @@ ul.tasks {
   left: 0;
   right: 0;
   margin: 0 auto;
-  font-size: 1.65rem;
+  font-size: 1.25rem;
   color: #fff;
+  padding: 1rem;
 }
 
 .task-name {
