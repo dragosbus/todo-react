@@ -6,31 +6,31 @@ const initialState = {
     id: 1
 };
 
-const taskReducer = (state=initialState, action) => {
+const taskReducer = (state = initialState, action) => {
     let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    switch(action.type) {
+    switch (action.type) {
         case ActionTypes.ADD_TASK:
             return {
-                tasks: [...state.tasks, 
-                    {   
+                tasks: [...state.tasks,
+                    {
                         id: state.id,
                         name: action.name,
                         date: {
-                           day: weekDays[new Date().getDay()],
-                           moment: new Date().toLocaleTimeString()
-                         }
+                            day: weekDays[new Date().getDay()],
+                            moment: new Date().toLocaleTimeString()
+                        }
                     }
-                   ],
+                ],
                 id: state.id + 1
             };
         case ActionTypes.REMOVE_TASK:
-        console.log(state.id)
+            console.log(state.id)
             return {
-                tasks: state.tasks.filter((task, index)=>index !== action.index)
-                    .map((task,i)=>{
+                tasks: state.tasks.filter((task, index) => index !== action.index)
+                    .map((task, i) => {
                         return {
-                            id: i+1,
+                            id: i + 1,
                             name: task.name,
                             date: task.date
                         }
@@ -39,8 +39,8 @@ const taskReducer = (state=initialState, action) => {
             };
         case ActionTypes.EDIT_TASK:
             return {
-                tasks: state.tasks.map((task,index)=>{
-                    if(index === action.index - 1) {
+                tasks: state.tasks.map((task, index) => {
+                    if (index === action.index - 1) {
                         return {
                             id: action.index,
                             date: task.date,
