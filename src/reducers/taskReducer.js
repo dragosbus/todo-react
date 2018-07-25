@@ -25,15 +25,24 @@ const taskReducer = (state=initialState, action) => {
                 id: state.id + 1
             };
         case ActionTypes.REMOVE_TASK:
+        console.log(state.id)
             return {
-                tasks: state.tasks.filter((task, index)=>index !== action.index),
-                id: state.id
+                tasks: state.tasks.filter((task, index)=>index !== action.index)
+                    .map((task,i)=>{
+                        return {
+                            id: i+1,
+                            name: task.name,
+                            date: task.date
+                        }
+                    }),
+                id: state.id - 1
             };
         case ActionTypes.EDIT_TASK:
             return {
                 tasks: state.tasks.map((task,index)=>{
-                    if(index === action.index) {
+                    if(index === action.index - 1) {
                         return {
+                            id: action.index,
                             date: task.date,
                             name: action.name,
                         }
