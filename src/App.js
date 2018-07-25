@@ -13,6 +13,7 @@ class App extends Component {
     console.log(tasks)
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
+    const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
     return (
       <div className="app">
         <Header />
@@ -20,6 +21,7 @@ class App extends Component {
         <Tasks 
           items={tasks} 
           remove={removeTask}
+          editAction = {editTask}
         />
       </div>
     );
