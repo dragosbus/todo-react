@@ -54,10 +54,11 @@ const taskReducer = (state = initialState, action) => {
                 id: state.id
             };
         case ActionTypes.COMPLETE_TASK:
+        console.log(action.index)
             return {
                 tasks: state.tasks.map((task, index)=> {
-                    if(index=== action.index -1) {
-                        task.completed = true;
+                    if(index=== action.index) {
+                        task.completed = !task.completed;
                     }
                     return task;
                 }),

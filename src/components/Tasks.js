@@ -13,6 +13,7 @@ export class Tasks extends Component {
             date={task.date}
             remove={() => this.props.remove(i)}
             editAction={this.props.editAction}
+            complete={()=>this.props.complete(i)}
           />
         ))}
       </ul>

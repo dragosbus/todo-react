@@ -44,6 +44,7 @@ export class Task extends Component {
           {valueTask}
           <button onClick={this.props.remove}>Remove</button>
           {editBtn}
+          <input type="checkbox" onChange={this.props.complete}/>
         </div>
       </li>
     );
