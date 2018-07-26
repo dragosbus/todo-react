@@ -28,3 +28,9 @@ export const completeTask = index => {
         index
     }
 };
+
+export const hideCompleted = () => {
+    return {
+        type: ActionTypes.HIDE_COMPLETED
+    }
+};

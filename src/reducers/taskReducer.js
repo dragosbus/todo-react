@@ -1,9 +1,10 @@
 import * as ActionTypes from '../actionTypes/actionTypes';
-
+import {combineReducers} from 'redux';
 
 const initialState = {
     tasks: [],
-    id: 1
+    id: 1,
+    checked: false
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -23,10 +24,9 @@ const taskReducer = (state = initialState, action) => {
                         }
                     }
                 ],
-                id: state.id + 1
+                id:state.id + 1,
             };
         case ActionTypes.REMOVE_TASK:
-            console.log(state.id)
             return {
                 tasks: state.tasks.filter((task, index) => index !== action.index)
                     .map((task, i) => {
@@ -37,7 +37,7 @@ const taskReducer = (state = initialState, action) => {
                             date: task.date
                         }
                     }),
-                id: state.id - 1
+                id: state.id - 1,
             };
         case ActionTypes.EDIT_TASK:
             return {
@@ -51,10 +51,9 @@ const taskReducer = (state = initialState, action) => {
                     }
                     return task;
                 }),
-                id: state.id
+                id: state.id,
             };
         case ActionTypes.COMPLETE_TASK:
-        console.log(action.index)
             return {
                 tasks: state.tasks.map((task, index)=> {
                     if(index=== action.index) {
@@ -62,12 +61,11 @@ const taskReducer = (state = initialState, action) => {
                     }
                     return task;
                 }),
-                id: state.id
+                id: state.id,
             }
         default:
             return state;
     }
 };
-
 
 export default taskReducer;

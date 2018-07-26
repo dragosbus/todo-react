@@ -9,15 +9,16 @@ import './App.css';
 
 class App extends Component {
   render() {
-    let {dispatch, tasks} = this.props;
+    let {dispatch, tasks, checked} = this.props;
     console.log(tasks)
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
-    const completeTask = bindActionCreators(ActionTaskCreators.completeTask, dispatch)
+    const completeTask = bindActionCreators(ActionTaskCreators.completeTask, dispatch);
+    const hideCompleted = bindActionCreators(ActionTaskCreators.hideCompleted, dispatch);
     return (
       <div className="app">
-        <Header />
+        <Header hideCompleted={hideCompleted} checked={checked}/>
         <Form addTask={addTask}/>
         <Tasks 
           items={tasks} 
@@ -33,7 +34,8 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     tasks: state.tasks,
-    id: state.id
+    id: state.id,
+    checked: state.checked
   }
 );
 
