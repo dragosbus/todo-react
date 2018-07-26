@@ -16,6 +16,7 @@ const taskReducer = (state = initialState, action) => {
                     {
                         id: state.id,
                         name: action.name,
+                        completed: false,
                         date: {
                             day: weekDays[new Date().getDay()],
                             moment: new Date().toLocaleTimeString()
@@ -31,6 +32,7 @@ const taskReducer = (state = initialState, action) => {
                     .map((task, i) => {
                         return {
                             id: i + 1,
+                            completed: false,
                             name: task.name,
                             date: task.date
                         }
@@ -51,6 +53,16 @@ const taskReducer = (state = initialState, action) => {
                 }),
                 id: state.id
             };
+        case ActionTypes.COMPLETE_TASK:
+            return {
+                tasks: state.tasks.map((task, index)=> {
+                    if(index=== action.index -1) {
+                        task.completed = true;
+                    }
+                    return task;
+                }),
+                id: state.id
+            }
         default:
             return state;
     }

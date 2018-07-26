@@ -21,3 +21,10 @@ export const editTask = (index, name) => {
         name
     }
 };
+
+export const completeTask = index => {
+    return {
+        type: ActionTypes.COMPLETE_TASK,
+        index
+    }
+};
