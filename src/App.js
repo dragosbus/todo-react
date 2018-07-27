@@ -10,7 +10,7 @@ import './App.css';
 class App extends Component {
   render() {
     let {dispatch, tasks, checked} = this.props;
-    console.log(tasks)
+    console.log(this.props)
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
@@ -33,9 +33,9 @@ class App extends Component {
 
 const mapStateToProps = state => (
   {
-    tasks: state.tasks,
-    id: state.id,
-    checked: state.checked
+    tasks: state.taskReducer,
+    id: state.idReducer,
+    checked: state.hideReducer
   }
 );
 
