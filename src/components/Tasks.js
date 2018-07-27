@@ -8,7 +8,7 @@ export class Tasks extends Component {
         {this.props.items.map((task, i) => (
           <Task
             key={task.id}
-            id={task.id}
+            id={this.props.id}
             name={task.name}
             date={task.date}
             remove={() => this.props.remove(i)}

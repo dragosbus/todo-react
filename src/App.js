@@ -20,7 +20,8 @@ class App extends Component {
       <div className="app">
         <Header hideCompleted={hideCompleted} checked={checked}/>
         <Form addTask={addTask}/>
-        <Tasks 
+        <Tasks
+          id={tasks.id}
           items={tasks} 
           remove={removeTask}
           editAction = {editTask}

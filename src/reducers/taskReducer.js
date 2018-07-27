@@ -1,6 +1,5 @@
 import * as ActionTypes from '../actionTypes/actionTypes';
 
-
 const initialState = [];
 
 export const taskReducer = (state = initialState, action) => {
@@ -9,8 +8,8 @@ export const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TASK:
             return [...state,
-                {
-                    id: state.id,
+                {   
+                    id: state.length + 1,
                     name: action.name,
                     completed: false,
                     date: {
@@ -30,6 +29,7 @@ export const taskReducer = (state = initialState, action) => {
                 }
             });
         case ActionTypes.EDIT_TASK:
+        console.log(action.index)
             return state.map((task, index) => {
                 if (index === action.index - 1) {
                     return {
