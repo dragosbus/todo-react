@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux';
 import {taskReducer} from './taskReducer';
-import {hideReducer} from './hideReducer';
+import {visibilityFilter} from './visibilityFilter';
 
 
 const gReducer = combineReducers({
     taskReducer,
-    hideReducer
+    visibilityFilter
 });
 
 export default gReducer;

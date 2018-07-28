@@ -15,10 +15,10 @@ class App extends Component {
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
     const completeTask = bindActionCreators(ActionTaskCreators.completeTask, dispatch);
-    const hideCompleted = bindActionCreators(ActionTaskCreators.hideCompleted, dispatch);
+    const visibilityFilter = bindActionCreators(ActionTaskCreators.visibilityFilter, dispatch);
     return (
       <div className="app">
-        <Header hideCompleted={hideCompleted} checked={checked}/>
+        <Header checked={checked}/>
         <Form addTask={addTask}/>
         <Tasks
           id={tasks.id}

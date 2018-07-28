@@ -30,8 +30,9 @@ export const completeTask = index => {
     }
 };
 
-export const hideCompleted = () => {
+export const visibilityFilter = filter => {
     return {
-        type: ActionTypes.HIDE_COMPLETED
+        type: ActionTypes.VISIBILITY_FILTER,
+        filter
     }
 };
