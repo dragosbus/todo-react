@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 
 
 export class Form extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0
+        }
+    }
     addTask(e) {
         e.preventDefault();
-        this.props.addTask(this._taskValue.value)
+        this.setState({index: this.state.index + 1})
+        this.props.addTask(this.state.index,this._taskValue.value)
     }
 
     render() {

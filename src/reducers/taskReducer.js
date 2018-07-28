@@ -9,7 +9,7 @@ export const taskReducer = (state = initialState, action) => {
         case ActionTypes.ADD_TASK:
             return [...state,
                 {   
-                    id: state.length + 1,
+                    id: action.id,
                     name: action.name,
                     completed: false,
                     date: {
@@ -19,30 +19,24 @@ export const taskReducer = (state = initialState, action) => {
                 }
             ];
         case ActionTypes.REMOVE_TASK:
-            return state.filter((task, index) => index !== action.index)
-            .map((task, i) => {
-                return {
-                    id: i + 1,
-                    completed: false,
-                    name: task.name,
-                    date: task.date
-                }
-            });
+            return [
+                ...state.slice(0, action.index),
+                ...state.slice(action.index + 1)
+            ];
         case ActionTypes.EDIT_TASK:
-        console.log(action.index)
-            return state.map((task, index) => {
-                if (index === action.index - 1) {
-                    return {
-                        id: action.index,
-                        date: task.date,
-                        name: action.name,
-                    }
-                }
-                return task;
-            });
+        console.log(state[action.index])
+            return [
+                ...state.slice(0, action.index),
+                Object.assign({}, state[action.index], {
+                    id:action.index,
+                    name: action.name,
+                    date: state[action.index].date
+                }),
+                ...state.slice(action.index + 1)
+            ];
         case ActionTypes.COMPLETE_TASK:
-            return state.map((task, index)=> {
-                if(index=== action.index) {
+            return state.map(task=> {
+                if(task.id=== action.index) {
                     task.completed = !task.completed;
                 }
                 return task;

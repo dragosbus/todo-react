@@ -35,7 +35,6 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     tasks: state.taskReducer,
-    id: state.idReducer,
     checked: state.hideReducer
   }
 );

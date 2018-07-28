@@ -1,9 +1,10 @@
 import * as ActionTypes from '../actionTypes/actionTypes';
 
-export const addTask = name => {
+export const addTask = (id, name) => {
     return {
         type: ActionTypes.ADD_TASK,
-        name
+        name,
+        id
     }
 };
 

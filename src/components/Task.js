@@ -42,9 +42,9 @@ export class Task extends Component {
         </div>
         <div className="task-name">
           {valueTask}
-          <button onClick={this.props.remove}>Remove</button>
+          <button onClick={()=> this.props.remove(this.props.id)}>Remove</button>
           {editBtn}
-          <input type="checkbox" onChange={this.props.complete}/>
+          <input type="checkbox" onChange={()=>this.props.complete(this.props.id)}/>
         </div>
       </li>
     );

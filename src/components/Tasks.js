@@ -5,15 +5,15 @@ export class Tasks extends Component {
   render() {
     return (
       <ul className="tasks">
-        {this.props.items.map((task, i) => (
+        {this.props.items.map(task => (
           <Task
             key={task.id}
-            id={this.props.id}
+            id={task.id}
             name={task.name}
             date={task.date}
-            remove={() => this.props.remove(i)}
+            remove={this.props.remove}
             editAction={this.props.editAction}
-            complete={()=>this.props.complete(i)}
+            complete={this.props.complete}
           />
         ))}
       </ul>
