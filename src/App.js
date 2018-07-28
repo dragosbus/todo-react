@@ -22,8 +22,7 @@ class App extends Component {
   render() {
     let {dispatch, tasks, filter} = this.props;
     let todos=getVisibleTodos(tasks, filter);
-    console.log(this.props);
-    console.log(todos)
+    
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
@@ -35,7 +34,7 @@ class App extends Component {
         <Form addTask={addTask}/>
         <Tasks
           id={tasks.id}
-          items={todos} 
+          items={todos}
           remove={removeTask}
           editAction = {editTask}
           complete={completeTask}
