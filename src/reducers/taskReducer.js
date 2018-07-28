@@ -24,16 +24,16 @@ export const taskReducer = (state = initialState, action) => {
                 ...state.slice(action.index + 1)
             ];
         case ActionTypes.EDIT_TASK:
-        console.log(state[action.index])
-            return [
-                ...state.slice(0, action.index),
-                Object.assign({}, state[action.index], {
-                    id:action.index,
-                    name: action.name,
-                    date: state[action.index].date
-                }),
-                ...state.slice(action.index + 1)
-            ];
+            return state.map(task=> {
+                if(task.id === action.index) {
+                    return {
+                        id: task.id,
+                        name: action.name,
+                        date: task.date
+                    }
+                }
+                return task;
+            });
         case ActionTypes.COMPLETE_TASK:
             return state.map(task=> {
                 if(task.id=== action.index) {
