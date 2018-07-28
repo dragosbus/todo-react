@@ -5,7 +5,11 @@ export class Header extends Component {
         return (
             <header>
                 <h1>ToDo App</h1>
-                <input type="checkbox" onChange={this.props.hideCompleted}/>
+                <div>
+                    <button onClick={()=>this.props.filterTodos('SHOW_ALL')}>Show All</button>
+                    <button onClick={()=>this.props.filterTodos('SHOW_COMPLETED')}>Show Completed</button>
+                    <button onClick={()=>this.props.filterTodos('SHOW_ACTIVE')}>Show Active</button>
+                </div>
             </header>
         );
     }

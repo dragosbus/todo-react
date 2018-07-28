@@ -7,10 +7,23 @@ import { Form } from './components/Form';
 import {Tasks} from './components/Tasks';
 import './App.css';
 
+const getVisibleTodos = (todos, filter) => {
+  switch(filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETED':
+      return todos.filter(todo=> todo.completed);
+    case 'SHOW_ACTIVE':
+      return todos.filter(todo=> !todo.completed);
+  }
+};
+
 class App extends Component {
   render() {
-    let {dispatch, tasks, checked} = this.props;
-    console.log(this.props)
+    let {dispatch, tasks, filter} = this.props;
+    let todos=getVisibleTodos(tasks, filter);
+    console.log(this.props);
+    console.log(todos)
     const addTask = bindActionCreators(ActionTaskCreators.addTask, dispatch);
     const removeTask = bindActionCreators(ActionTaskCreators.removeTask, dispatch);
     const editTask = bindActionCreators(ActionTaskCreators.editTask, dispatch);
@@ -18,11 +31,11 @@ class App extends Component {
     const visibilityFilter = bindActionCreators(ActionTaskCreators.visibilityFilter, dispatch);
     return (
       <div className="app">
-        <Header checked={checked}/>
+        <Header filterTodos={visibilityFilter}/>
         <Form addTask={addTask}/>
         <Tasks
           id={tasks.id}
-          items={tasks} 
+          items={todos} 
           remove={removeTask}
           editAction = {editTask}
           complete={completeTask}
@@ -35,7 +48,7 @@ class App extends Component {
 const mapStateToProps = state => (
   {
     tasks: state.taskReducer,
-    checked: state.hideReducer
+    filter: state.visibilityFilter
   }
 );
 
