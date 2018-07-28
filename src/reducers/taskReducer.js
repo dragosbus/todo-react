@@ -29,6 +29,7 @@ export const taskReducer = (state = initialState, action) => {
                     return {
                         id: task.id,
                         name: action.name,
+                        completed: task.completed,
                         date: task.date
                     }
                 }
