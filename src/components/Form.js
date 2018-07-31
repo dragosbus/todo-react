@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {v4} from 'node-uuid';
 
 export class Form extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export class Form extends Component {
     addTask(e) {
         e.preventDefault();
         this.setState({index: this.state.index + 1})
-        this.props.addTask(this.state.index,this._taskValue.value)
+        this.props.addTask(v4(),this._taskValue.value)
     }
 
     render() {

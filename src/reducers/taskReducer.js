@@ -19,10 +19,7 @@ export const taskReducer = (state = initialState, action) => {
                 }
             ];
         case ActionTypes.REMOVE_TASK:
-            return [
-                ...state.slice(0, action.index),
-                ...state.slice(action.index + 1)
-            ];
+            return state.filter(task=>task.id!==action.index);
         case ActionTypes.EDIT_TASK:
             return state.map(task=> {
                 if(task.id === action.index) {
