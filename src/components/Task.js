@@ -32,9 +32,8 @@ export class Task extends Component {
     }
 
     return (
-      <li className="task" id={this.props.id}>
+      <li className="task">
         <div className="task-info">
-          <p className="task-id">{this.props.id}</p>
           <div className="date">
             <p className="task-date-day">{this.props.date.day}</p>
             <p className="task-date-momment">{this.props.date.moment}</p>
