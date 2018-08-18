@@ -26,15 +26,15 @@ class App extends Component {
     
     return (
       <div className="app">
-        <Header filterTodos={visibilityFilter()} />
-        <Form addTask={addTask()} />
+        <Header filterTodos={visibilityFilter} />
+        <Form addTask={addTask} />
         <Tasks
           id={tasks.id}
           items={todos}
-          remove={removeTask()}
-          editAction={editTask()}
-          complete={completeTask()}
-          moveUp={this.props.moveUp()}
+          remove={removeTask}
+          editAction={editTask}
+          complete={completeTask}
+          moveUp={this.props.moveUp}
         />
       </div>
     );
@@ -47,27 +47,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTask() {
-    return bindActionCreators(ActionTaskCreators.addTask, dispatch);
-  },
-  removeTask() {
-    return bindActionCreators(ActionTaskCreators.removeTask, dispatch);
-  },
-  editTask() {
-    return bindActionCreators(ActionTaskCreators.editTask, dispatch);
-  },
-  completeTask() {
-    return bindActionCreators(ActionTaskCreators.completeTask, dispatch);
-  },
-  visibilityFilter() {
-    return bindActionCreators(ActionTaskCreators.visibilityFilter, dispatch);
-  },
-  moveUp() {
-    return bindActionCreators(ActionTaskCreators.moveUp, dispatch);
-  },
-  moveDown() {
-    return bindActionCreators(ActionTaskCreators.moveDown, dispatch);
-  }
+  addTask: bindActionCreators(ActionTaskCreators.addTask, dispatch),
+  removeTask: bindActionCreators(ActionTaskCreators.removeTask, dispatch),
+  editTask: bindActionCreators(ActionTaskCreators.editTask, dispatch),
+  completeTask: bindActionCreators(ActionTaskCreators.completeTask, dispatch),
+  visibilityFilter: bindActionCreators(ActionTaskCreators.visibilityFilter, dispatch),
+  moveUp: bindActionCreators(ActionTaskCreators.moveUp, dispatch),
+  moveDown:  bindActionCreators(ActionTaskCreators.moveDown, dispatch)
 });
 
 export default connect(

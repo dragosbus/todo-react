@@ -176,7 +176,7 @@ ul.tasks {
   top: 2px;
   left: 2px;
   display: block;
-  width: calc((100% - 8px) / 2);
+  width: calc((100% - 1px) / 2);
   height: calc(100% - 4px);
   border-radius: 50%;
   /* background: rgba(58, 57, 57, 0.685); */
@@ -190,7 +190,7 @@ ul.tasks {
 }
 
 .complete:checked::after {
-  transform: translateX(100%);
+  transform: translateX(80%);
   background: #fff;
 }
 
