@@ -17,7 +17,6 @@ export class Tasks extends Component {
             moveUp={this.props.moveUp}
             index={i}
             items={this.props.items}
-            move={this.props.move}
           />
         ))}
       </ul>

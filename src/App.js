@@ -19,31 +19,22 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 class App extends Component {
+  
   render() {
     let { tasks, filter, addTask, removeTask, editTask, completeTask, visibilityFilter } = this.props;
     let todos = getVisibleTodos(tasks, filter);
-
-    let toIndex = this.props.move[1] < 0 ? tasks.length - 1 : this.props.move[1];
-    let fromIndex = this.props.move[0];
     
-    let toItem = tasks[toIndex];
-    let fromItem = tasks[fromIndex];
-
-    tasks[fromIndex] = toItem;
-    tasks[toIndex] = fromItem;
-
     return (
       <div className="app">
         <Header filterTodos={visibilityFilter()} />
         <Form addTask={addTask()} />
-        <Tasks 
-          id={tasks.id} 
-          items={todos} 
-          remove={removeTask()} 
-          editAction={editTask()} 
+        <Tasks
+          id={tasks.id}
+          items={todos}
+          remove={removeTask()}
+          editAction={editTask()}
           complete={completeTask()}
           moveUp={this.props.moveUp()}
-          move={this.props.move}
         />
       </div>
     );
@@ -52,8 +43,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   tasks: state.taskReducer,
-  filter: state.visibilityFilter,
-  move: state.move
+  filter: state.visibilityFilter
 });
 
 const mapDispatchToProps = dispatch => ({
