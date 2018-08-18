@@ -11,6 +11,7 @@ header {
   margin: 2rem auto 0;
   padding: 1rem;
   border-radius: 7px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.45);
 }
 
 main {
@@ -18,13 +19,13 @@ main {
 }
 
 form {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .form-value,
 .form-submit {
-  width: 90%;
+  width: 100%;
   display: block;
   border: none;
   margin: 0 auto;
@@ -32,13 +33,13 @@ form {
 }
 
 .form-value {
-  border-radius: 0.5rem 0.5rem 0 0;
   height: 4rem;
   font-size: 1.75rem;
   letter-spacing: 1.2px;
   padding: 1.5rem;
-  transition: border 0.55s ease-in;
+  transition: all 0.55s ease-in;
   border-bottom: 1px solid rgb(8, 56, 160);
+  margin-bottom: 1rem;
 }
 
 .form-value:focus {
@@ -59,96 +60,85 @@ form {
   background: rgb(12, 107, 55);
 }
 
+.filter-select {
+  padding: 1rem 2rem;
+  border: 1px solid rgba(22, 22, 22, 0.438);
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
 ul.tasks {
   font-style: none;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
   padding: 1rem;
   width: 90%;
   margin: 8rem auto 0;
   border-radius: 7px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
 }
 
 .task {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin: 1rem auto;
   border-radius: 0.7rem;
   animation-name: intro-task;
   animation-duration: 1s;
   animation-timing-function: ease-in;
   transition: all 0.45s ease-in;
+  border: 1px solid rgba(0,0,0,0.25);
+  padding: 1rem;
 }
 
 .task-completed {
   text-decoration: line-through;
 }
 
-.task-info {
-  width: 30%;
+.task input {
+  margin-right: auto;
+}
+
+.task p {
+  width: 80%;
   text-align: center;
-  background: rgb(138, 46, 100);
-  border-radius: 0.5rem 0 0 0.5rem;
-  height: 12rem;
-  position: relative;
-}
-
-.task-id {
-  margin: 1rem 0;
-  color: #fff;
-  font-size: 2rem;
-}
-
-.date {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  font-size: 1.25rem;
-  color: #fff;
-  padding: 1rem;
-}
-
-.task-name {
-  width: 70%;
-  text-align: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #222;
-  background: #fff;
-  border-radius: 0 0.5rem 0.5rem 0;
-  height: 12rem;
-  padding: 1rem;
-}
-
-.btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  margin-right: auto;
 }
 
 .remove-btn,
 .edit-btn {
   border: none;
   border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  color: #fff;
+  padding: 0.5rem;
+  background: none;
   cursor: pointer;
+  transition: all 0.45s ease-in;
 }
 
 .remove-btn {
-  background: rgb(214, 9, 60);
+  color: rgba(233, 7, 45, 0.74);
+}
+
+.remove-btn:hover {
+  color: rgb(233, 7, 45);
+  transform: scale(1.2,1.2);
 }
 
 .edit-btn {
-  background: #3D5AFF;
+  color: rgba(61, 90, 255, 0.795);
+}
+
+.edit-btn:hover {
+  color: rgb(14, 36, 163);
+  transform: scale(1.2,1.2);
 }
 
 .overlay {
@@ -223,19 +213,28 @@ ul.tasks {
 }
 
 @media (min-width: 600px) {
-  .task {
-    width: 45%;
+  .app {
+    width: 70%;
+  }
+  form {
+    width: 80%;
   }
 }
 
 @media (min-width: 900px) {
-  .task {
-    width: 30%;
+  .app {
+    width: 60%;
+  }
+  form {
+    width: 70%;
   }
 }
 
 @media (min-width: 1100px) {
-  .task {
-    width: 22%;
+  .app {
+    width: 50%;
+  }
+  form {
+    width: 55%;
   }
 }

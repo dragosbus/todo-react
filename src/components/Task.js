@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {FaTrash} from 'react-icons/fa';
+import {FaEdit} from 'react-icons/fa';
+import {FaSave} from 'react-icons/fa';
 
 export class Task extends Component {
   constructor(props) {
@@ -24,20 +27,30 @@ export class Task extends Component {
     let editBtn;
     let valueTask;
     if (this.state.editMode) {
-      editBtn = <button onClick={this.saveEdit}>Save</button>;
+      editBtn = (
+        <button className="edit-btn" onClick={this.saveEdit}>
+          <FaSave/>
+        </button>
+      );
       valueTask = <input ref={val => (this._newValue = val)} type="text" defaultValue={this.props.name} />;
     } else {
-      editBtn = <button onClick={this.editTask}>Edit</button>;
+      editBtn = (
+        <button className="edit-btn" onClick={this.editTask}>
+          <FaEdit/>
+        </button>
+      );
       valueTask = <p>{this.props.name}</p>;
     }
 
     return (
       <li className={this.props.completed ? 'task task-completed' : 'task'}>
-        <div className="task-name">
-          {valueTask}
-          <button onClick={()=> this.props.remove(this.props.id)}>Remove</button>
+        <input checked={this.props.completed} type="checkbox" onChange={() => this.props.complete(this.props.id)} />
+        <p>{valueTask}</p>
+        <div className="btn-group">
+          <button className="remove-btn" onClick={() => this.props.remove(this.props.id)}>
+            <FaTrash/>
+          </button>
           {editBtn}
-          <input checked={this.props.completed} type="checkbox" onChange={()=>this.props.complete(this.props.id)}/>
         </div>
       </li>
     );
