@@ -32,7 +32,7 @@ class App extends Component {
           items={todos} 
           remove={removeTask()} 
           editAction={editTask()} 
-          complete={completeTask()} 
+          complete={completeTask()}
         />
       </div>
     );

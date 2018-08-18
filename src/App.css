@@ -60,11 +60,16 @@ form {
 
 ul.tasks {
   font-style: none;
-  margin-top: 8rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  background: #fff;
+  padding: 1rem;
+  width: 90%;
+  margin: 8rem auto 0;
+  border-radius: 7px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
 }
 
 .task {
@@ -77,6 +82,12 @@ ul.tasks {
   animation-name: intro-task;
   animation-duration: 1s;
   animation-timing-function: ease-in;
+  transition: all 0.45s ease-in;
+}
+
+.task-completed {
+  text-decoration: line-through;
+  transition: all 0.45s ease-in;
 }
 
 .task-info {

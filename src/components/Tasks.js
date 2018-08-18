@@ -14,6 +14,7 @@ export class Tasks extends Component {
             remove={this.props.remove}
             editAction={this.props.editAction}
             complete={this.props.complete}
+            completed={task.completed}
           />
         ))}
       </ul>

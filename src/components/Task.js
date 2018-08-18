@@ -32,12 +32,12 @@ export class Task extends Component {
     }
 
     return (
-      <li className="task">
+      <li className={this.props.completed ? 'task task-completed' : 'task'}>
         <div className="task-name">
           {valueTask}
           <button onClick={()=> this.props.remove(this.props.id)}>Remove</button>
           {editBtn}
-          <input type="checkbox" onChange={()=>this.props.complete(this.props.id)}/>
+          <input checked={this.props.completed} type="checkbox" onChange={()=>this.props.complete(this.props.id)}/>
         </div>
       </li>
     );
