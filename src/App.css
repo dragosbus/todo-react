@@ -190,3 +190,39 @@ ul.tasks {
     width: 55%;
   }
 }
+
+.complete {
+  position: relative;
+  margin: 0 10px;
+  border-radius: 20px;
+  background: rgb(248, 245, 245);
+  outline: 0;
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 5rem;
+  height: 2rem;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+
+.complete::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  width: calc((100% - 8px) / 2);
+  height: calc(100% - 4px);
+  border-radius: 50%;
+  background: rgba(58, 57, 57, 0.685);
+  transition: all .1s linear;
+}
+
+.complete:checked {
+  background: #5b5;
+  border: none;
+}
+
+.complete:checked::after {
+  transform: translateX(100%);
+  background: #fff;
+}

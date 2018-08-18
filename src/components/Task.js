@@ -44,7 +44,7 @@ export class Task extends Component {
 
     return (
       <li className={this.props.completed ? 'task task-completed' : 'task'}>
-        <input checked={this.props.completed} type="checkbox" onChange={() => this.props.complete(this.props.id)} />
+        <input className='complete' type="checkbox" checked={this.props.completed} type="checkbox" onChange={() => this.props.complete(this.props.id)}/>
         <p>{valueTask}</p>
         <div className="btn-group">
           <button className="remove-btn" onClick={() => this.props.remove(this.props.id)}>
