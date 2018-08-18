@@ -33,12 +33,6 @@ export class Task extends Component {
 
     return (
       <li className="task">
-        <div className="task-info">
-          <div className="date">
-            <p className="task-date-day">{this.props.date.day}</p>
-            <p className="task-date-momment">{this.props.date.moment}</p>
-          </div>
-        </div>
         <div className="task-name">
           {valueTask}
           <button onClick={()=> this.props.remove(this.props.id)}>Remove</button>
