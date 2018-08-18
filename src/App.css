@@ -1,13 +1,16 @@
 header {
-  background: linear-gradient(45deg, #CE336F, #3D5AFF);
-  color: #fff;
   padding: 2rem 4rem;
-  width: 85%;
+  width: 100%;
   margin: 2rem auto;
-  height: 25rem;
   text-align: center;
-  border-radius: 0.5rem;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.app {
+  background: #fff;
+  width: 90%;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border-radius: 7px;
 }
 
 main {
@@ -16,10 +19,6 @@ main {
 
 form {
   width: 85%;
-  position: absolute;
-  top: 25%;
-  left: 0;
-  right: 0;
   margin: 0 auto;
 }
 
@@ -39,6 +38,7 @@ form {
   letter-spacing: 1.2px;
   padding: 1.5rem;
   transition: border 0.55s ease-in;
+  border-bottom: 1px solid rgb(8, 56, 160);
 }
 
 .form-value:focus {
@@ -46,7 +46,8 @@ form {
 }
 
 .form-submit {
-  border-radius: 0 0 0.5rem 0.5rem;
+  width: 10rem;
+  border-radius: 0.5rem;
   padding: 0.5rem 0;
   font-size: 1.6rem;
   background: rgb(12, 179, 67);
@@ -87,7 +88,6 @@ ul.tasks {
 
 .task-completed {
   text-decoration: line-through;
-  transition: all 0.45s ease-in;
 }
 
 .task-info {

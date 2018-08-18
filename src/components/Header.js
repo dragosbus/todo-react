@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
 export class Header extends Component {
+
+    changeFilter(e) {
+       this.props.filterTodos(e.target.value);
+    }
+
     render() {
         return (
             <header>
                 <h1>ToDo App</h1>
                 <div>
-                    <button onClick={()=>this.props.filterTodos('SHOW_ALL')}>Show All</button>
-                    <button onClick={()=>this.props.filterTodos('SHOW_COMPLETED')}>Show Completed</button>
-                    <button onClick={()=>this.props.filterTodos('SHOW_ACTIVE')}>Show Active</button>
+                    <select value={this.props.filter} onChange={this.changeFilter.bind(this)}>
+                        <option value="SHOW_ALL">Show All</option>
+                        <option value="SHOW_COMPLETED">Show Completed</option>
+                        <option value="SHOW_ACTIVE">Show Active</option>
+                    </select>
                 </div>
             </header>
         );
