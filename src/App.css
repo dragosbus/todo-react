@@ -154,6 +154,7 @@ ul.tasks {
   border: none;
   padding: 0.5rem;
   cursor: pointer;
+  margin-left: 2rem;
 }
 
 .complete {
