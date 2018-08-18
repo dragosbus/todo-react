@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {FaTrash} from 'react-icons/fa';
 import {FaEdit} from 'react-icons/fa';
 import {FaSave} from 'react-icons/fa';
+import {FaArrowDown} from 'react-icons/fa';
+import {FaArrowUp} from 'react-icons/fa';
+
 
 export class Task extends Component {
   constructor(props) {
@@ -12,6 +15,8 @@ export class Task extends Component {
     };
     this.editTask = this.editTask.bind(this);
     this.saveEdit = this.saveEdit.bind(this);
+    this.moveUp = this.moveUp.bind(this);
+    this.moveDown = this.moveDown.bind(this);
   }
 
   editTask() {
@@ -21,6 +26,14 @@ export class Task extends Component {
   saveEdit() {
     this.props.editAction(this.state.index, this._newValue.value);
     this.setState({ editMode: false });
+  }
+
+  moveUp() {
+    this.props.moveUp(this.props.index);
+  }
+
+  moveDown() {
+    this.props.moveDown(this.props.index);
   }
 
   render() {
@@ -51,6 +64,10 @@ export class Task extends Component {
             <FaTrash/>
           </button>
           {editBtn}
+        </div>
+        <div className="btn-group arrows">
+          <button onClick={this.moveUp}><FaArrowUp/></button>
+          <button onClick={this.moveDown}><FaArrowDown/></button>
         </div>
       </li>
     );

@@ -23,6 +23,15 @@ class App extends Component {
     let { tasks, filter, addTask, removeTask, editTask, completeTask, visibilityFilter } = this.props;
     let todos = getVisibleTodos(tasks, filter);
 
+    let toIndex = this.props.move[1] < 0 ? tasks.length - 1 : this.props.move[1];
+    let fromIndex = this.props.move[0];
+    
+    let toItem = tasks[toIndex];
+    let fromItem = tasks[fromIndex];
+
+    tasks[fromIndex] = toItem;
+    tasks[toIndex] = fromItem;
+
     return (
       <div className="app">
         <Header filterTodos={visibilityFilter()} />
@@ -33,6 +42,8 @@ class App extends Component {
           remove={removeTask()} 
           editAction={editTask()} 
           complete={completeTask()}
+          moveUp={this.props.moveUp()}
+          move={this.props.move}
         />
       </div>
     );
@@ -41,7 +52,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   tasks: state.taskReducer,
-  filter: state.visibilityFilter
+  filter: state.visibilityFilter,
+  move: state.move
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,6 +71,12 @@ const mapDispatchToProps = dispatch => ({
   },
   visibilityFilter() {
     return bindActionCreators(ActionTaskCreators.visibilityFilter, dispatch);
+  },
+  moveUp() {
+    return bindActionCreators(ActionTaskCreators.moveUp, dispatch);
+  },
+  moveDown() {
+    return bindActionCreators(ActionTaskCreators.moveDown, dispatch);
   }
 });
 

@@ -149,6 +149,13 @@ ul.tasks {
   transform: scale(1.2,1.2);
 }
 
+.arrows button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
 .complete {
   position: relative;
   margin: 0 10px;

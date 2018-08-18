@@ -26,3 +26,13 @@ export const visibilityFilter = filter => ({
     type: ActionTypes.VISIBILITY_FILTER,
     filter
 });
+
+export const moveUp = index => ({
+    type: ActionTypes.MOVE_UP,
+    index
+});
+
+export const moveDown = index => ({
+    type: ActionTypes.MOVE_DOWN,
+    index
+});
