@@ -15,6 +15,7 @@ export class Tasks extends Component {
             complete={this.props.complete}
             completed={task.completed}
             moveUp={this.props.moveUp}
+            moveDown={this.props.moveDown}
             index={i}
             items={this.props.items}
           />

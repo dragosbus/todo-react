@@ -35,6 +35,7 @@ class App extends Component {
           editAction={editTask}
           complete={completeTask}
           moveUp={this.props.moveUp}
+          moveDown={this.props.moveDown}
         />
       </div>
     );

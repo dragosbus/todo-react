@@ -34,18 +34,31 @@ export const taskReducer = (state = initialState, action) => {
                 return task;
             });
         case ActionTypes.MOVE_UP:
-            let toPos = action.index - 1 < 0 ? state.length - 1 : action.index - 1;
-            let fromItem = state[action.index];
+            let toPosUp = action.index - 1 < 0 ? state.length - 1 : action.index - 1;
+            let fromItemUp = state[action.index];
 
-            let copy = state.map((task, i) => {
+            let copyUp = state.map((task, i) => {
                 if (i === action.index) {
-                    return Object.assign({}, state[toPos]);
-                } else if (i === toPos) {
-                    return Object.assign({}, fromItem);
+                    return Object.assign({}, state[toPosUp]);
+                } else if (i === toPosUp) {
+                    return Object.assign({}, fromItemUp);
                 }
                 return task;
             });
-            return copy;
+            return copyUp;
+        case ActionTypes.MOVE_DOWN:
+            let toPosDown = action.index + 1 > state.length - 1 ? 0 : action.index + 1;
+            let fromItemDown = state[action.index];
+
+            let copyDown = state.map((task, i) => {
+                if (i === action.index) {
+                    return Object.assign({}, state[toPosDown]);
+                } else if (i === toPosDown) {
+                    return Object.assign({}, fromItemDown);
+                }
+                return task;
+            });
+            return copyDown;
         default:
             return state;
     }
