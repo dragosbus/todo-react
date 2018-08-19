@@ -16,6 +16,10 @@ export class Header extends Component {
             <option value="SHOW_ACTIVE">Show Active</option>
           </select>
         </div>
+        <div>
+          <p>Total Items: {this.props.items.length}</p>
+          <p>Tasks Completed: {this.props.completed.length}</p>
+        </div>
       </header>
     );
   }

@@ -23,10 +23,15 @@ class App extends Component {
   render() {
     let { tasks, filter, addTask, removeTask, editTask, completeTask, visibilityFilter } = this.props;
     let todos = getVisibleTodos(tasks, filter);
+    let todosCompleted = todos.filter(todo=>todo.completed);
     
     return (
       <div className="app">
-        <Header filterTodos={visibilityFilter} />
+        <Header 
+          filterTodos={visibilityFilter} 
+          items={todos}
+          completed={todosCompleted}
+        />
         <Form addTask={addTask} />
         <Tasks
           id={tasks.id}
