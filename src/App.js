@@ -5,7 +5,12 @@ import * as ActionTaskCreators from './actions/actions';
 import { Header } from './components/Header';
 import { Form } from './components/Form';
 import { Tasks } from './components/Tasks';
+import AlertWrapper from './components/SuccessAlert';
 import './App.css';
+
+const success = <div className="success">success</div>
+
+const SuccessAlert = AlertWrapper(success, null)
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -42,6 +47,7 @@ class App extends Component {
           moveUp={this.props.moveUp}
           moveDown={this.props.moveDown}
         />
+        <SuccessAlert/>
       </div>
     );
   }
