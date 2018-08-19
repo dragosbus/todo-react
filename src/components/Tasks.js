@@ -10,7 +10,7 @@ export class Tasks extends Component {
             key={task.id}
             id={task.id}
             name={task.name}
-            remove={this.props.remove}
+            removeTask={this.props.remove}
             editAction={this.props.editAction}
             complete={this.props.complete}
             completed={task.completed}
@@ -18,6 +18,7 @@ export class Tasks extends Component {
             moveDown={this.props.moveDown}
             index={i}
             items={this.props.items}
+            messageAlert={this.props.messageAlert}
           />
         ))}
       </ul>

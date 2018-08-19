@@ -8,9 +8,8 @@ import { Tasks } from './components/Tasks';
 import AlertWrapper from './components/SuccessAlert';
 import './App.css';
 
-const success = <div className="success">success</div>
-
-const SuccessAlert = AlertWrapper(success, null)
+const success = <div className="success">Successfully</div>;
+let SuccessAlert = AlertWrapper(null, null);
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -24,6 +23,17 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 class App extends Component {
+
+  showAlert(message) {
+    SuccessAlert = AlertWrapper(success, message);    
+  }
+
+  componentDidUpdate() {
+    setTimeout(() => {
+      SuccessAlert = AlertWrapper(null, null);
+      document.querySelector('.alert').style.display='none';
+    }, 4000);
+  }
   
   render() {
     let { tasks, filter, addTask, removeTask, editTask, completeTask, visibilityFilter } = this.props;
@@ -46,6 +56,7 @@ class App extends Component {
           complete={completeTask}
           moveUp={this.props.moveUp}
           moveDown={this.props.moveDown}
+          messageAlert={this.showAlert.bind(this)}
         />
         <SuccessAlert/>
       </div>

@@ -1,16 +1,9 @@
 import React from 'react';
 
-const AlertWrapper = (component, data) =>
-  class Alert extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-    componentDidMount() {
-      console.log(data);
-    }
-    render() {
-      return <div className="alert">{component}</div>;
-    }
-  };
-
+const AlertWrapper = (component, data) => () => (
+  <div className="alert">
+    {component}
+    <p>{data}</p>
+  </div>
+);
 export default AlertWrapper;
